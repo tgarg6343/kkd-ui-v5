@@ -1,0 +1,48 @@
+<app-farmer-common-header></app-farmer-common-header>
+<div *ngIf="!hideVar">
+  <div class="container-fluid cardmargin">
+    <div class="card cardwidth">
+      <div class="card-body">
+        <form [formGroup]="rForm" (ngSubmit)="sendOtp(rForm.value)">
+          <div class="form-group">
+            <label for="aadhaarNo">Aadhaar Number</label>
+            <input id ="aadhaarNo" class="form-control" type="text" formControlName="aadhaarNo" placeholder="Aadhaar Number">
+            <div *ngIf="rForm.controls['aadhaarNo'].touched && rForm.controls['aadhaarNo'].invalid" class="alert">
+              <div *ngIf="rForm.controls['aadhaarNo'].hasError('minlength')" >
+                Less than 12 digits 
+              </div>
+              <div *ngIf="rForm.controls['aadhaarNo'].hasError('maxlength')">
+               More than 12 digits 
+             </div>
+             <div *ngIf="rForm.controls['aadhaarNo'].hasError('required')">
+               Aadhaar Number is required!  
+             </div>
+           </div>
+         </div>
+         <button type="submit" class="btn btn-primary" value="Submit Form" [disabled]="!rForm.valid">Send OTP</button>
+       </form>
+     </div>
+   </div>
+ </div>
+</div>
+
+
+<div *ngIf="hideVar">
+  <div class="container-fluid cardmargin">
+    <div class="card cardwidth">
+      <div class="card-body">
+        <form [formGroup]="otpForm" (ngSubmit)="verifyOtp(otpForm.value)">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Enter OTP</label>
+            <input class="form-control" type="text" id="otp" formControlName="otp">
+            <div class="alert" *ngIf=" otpForm.controls['otp'].touched && otpForm.controls['otp'].hasError('required')">
+              OTP is required!  
+            </div>
+            <br>
+          </div>
+          <button type="submit" class="btn btn-primary" value="Submit Form" [disabled]="!otpForm.valid">Verify OTP</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

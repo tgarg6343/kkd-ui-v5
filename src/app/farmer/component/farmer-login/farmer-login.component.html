@@ -1,0 +1,61 @@
+<app-farmer-common-header></app-farmer-common-header>
+<h1> Login Farmer </h1>
+<div class="container-fluid">
+  <div class="card shadow cardwidth">
+    <div class="card-body">
+      <form [formGroup]="rForm" (ngSubmit)="loginFarmer(rForm.value)">
+        <div class="form-group">
+            <div class = "form-comp-top">
+                <div class = "name"><label for="exampleInputEmail1">Mobile Number*</label></div>
+          <input class="form-control" type="text" id="mobileNo" formControlName="mobileNo" placeholder="Mobile Number">
+          <div *ngIf="rForm.controls['mobileNo'].touched && rForm.controls['mobileNo'].invalid" class="alert">
+            <div *ngIf="rForm.controls['mobileNo'].hasError('minlength')" >
+              Less than 10 digits
+            </div>
+            <div *ngIf="rForm.controls['mobileNo'].hasError('maxlength')">
+             More than 10 digits
+           </div>
+           <div *ngIf="rForm.controls['mobileNo'].hasError('required')">
+             Mobile Number is required!
+           </div>
+         </div>
+         </div>
+         <div class = "form-comp">
+            <div class = "name"><label for="exampleInputPassword1">Password*</label></div>
+         <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+         <div *ngIf="rForm.controls['password'].touched && rForm.controls['password'].invalid" class="alert">
+          <div *ngIf="rForm.controls['password'].hasError('minlength')" >
+            Less than 6 digits
+          </div>
+          <div *ngIf="rForm.controls['password'].hasError('maxlength')">
+           More than 12 digits
+         </div>
+         <div *ngIf="rForm.controls['password'].hasError('required')">
+           Password is required!
+         </div>
+       </div>
+     </div>
+     </div>
+     <a routerLink="/farmer/forgetPassword">Forgot password?</a>
+     <div class = "form-comp-button">
+     <button type="submit" class="btn btn-primary" value="Submit Form" [disabled]="!rForm.valid">Login</button>
+     <button type="submit" class="btn btn-primary" routerLink="/farmer/authenticationAndAuthorization">Register</button>
+   </div>
+    </form>
+ </div>
+</div>
+</div>
+
+ <!-- <div *ngIf="rForm.controls['password'].touched && rForm.controls['password'].invalid" class="alert-msg">
+              <div *ngIf="rForm.controls['password'].hasError('minlength')" >
+                Less than 8 digits
+              </div>
+              <div *ngIf="rForm.controls['password'].hasError('maxlength')">
+               More than 20 digits
+              </div>
+              <div *ngIf="rForm.controls['password'].hasError('required')">
+               Password is required!
+              </div>
+            </div> -->
+
+            

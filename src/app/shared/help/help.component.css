@@ -1,0 +1,21 @@
+body{
+	background-color:rgba(0,0,0,.03);
+}
+.jumbotron{
+	background-color:#a9c056;
+	width: 100%;
+	color:white;
+}
+
+.card-header{
+	background: white;
+	height: 70px;
+	padding-top: 20px;
+	font-size: 20px;
+}
+
+.card-element{}
+a{
+	color:#a9c056;
+
+}

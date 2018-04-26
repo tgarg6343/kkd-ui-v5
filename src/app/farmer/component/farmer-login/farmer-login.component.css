@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Muli:400,700');
+
+.form-container {
+    display:block;
+    width:90%;
+    padding:2em;
+    margin: 2em auto;
+    background:#fff;
+}
+
+.alert {
+    background: #ffaaaa;
+    padding: 0px;
+    font-size: .9em;
+    margin-bottom: 0px;
+    display: inline-block;
+    animation: 2s alertAnim forwards;
+}
+
+.button {
+    margin-top: 3rem;
+}
+h1 {
+    font-weight: normal;
+    font-family: 'Roboto', sans-serif;
+    padding: 0.5em 0 40px 0;
+    text-align: center;
+    margin: 0;
+    color: #4b5320;
+    font-size: 50px;
+    line-height: 42px;
+    text-shadow: 0 2px white, 0 3px #777;
+    }
+
+
+
+@keyframes alertAnim {
+    from {
+        opacity:0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity:1;
+        transform: translateY(0);
+    }
+}
+.cardwidth{
+    margin: 0 auto;
+    width: 600px;
+    background-color: #f9f9f9;
+}
+.name{
+    padding-left : 5px;
+    font-size : 18px;
+}
+
+.form-comp-button{
+    margin-top: 10px;
+    text-align: center;
+    border-radius: 12px;
+}
+button{
+    background-color : #a9c056 !important;
+    border : none;
+    margin-top: 35px;
+    margin-bottom: 20px;
+}
+
+button:hover {
+    background-color: #c1ed23 !important;
+    
+}
+
+button:focus{
+    border-color : #f9f9f9 !important;
+}
+.form-comp-top{
+    margin-top: 40px;
+}
+
+.form-comp{
+    margin-top: 25px;
+}

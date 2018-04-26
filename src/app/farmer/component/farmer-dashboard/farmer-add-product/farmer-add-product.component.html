@@ -1,0 +1,95 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<app-farmer-header></app-farmer-header>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<h3 class="text-center">
+				Upload a new product
+			</h3>
+			<div class="row">
+				<div class="col-md-2">
+				</div>
+				<div class="col-md-2">
+				</div>
+				<div class="col-md-4 drop">
+					<div class="dropdown">
+						
+						<select (change)="selectChangeHandler($event)" class="btn btn-info dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown">
+							<option value="select" class="dropdown-header">--Select--</option>
+							 <option value="Onion" class="dropdown-item">Onion</option>
+							 <option value="Tomato" class="dropdown-item">Tomato</option>
+							 <option value="Brinjal" class="dropdown-item">Brinjal</option>
+							 <option value="Cauliflower" class="dropdown-item">Cauliflower</option>
+							 <option value="Carrot" class="dropdown-item">Carrot</option>
+							 <option value="Garlic" class="dropdown-item">Garlic</option>
+							 <option value="Lady Finger" class="dropdown-item">Lady Finger</option>
+							 <option value="Orange" class="dropdown-item">Orange</option>
+							 <option value="Lemon" class="dropdown-item">Lemon</option>
+						</select>
+						
+					</div>
+				</div>
+				<div class="col-md-3">
+				</div>
+				<div class="col-md-1">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-2">
+				</div>
+				<div class="col-md-8">
+					<form role="form">
+						<div class="form-group">
+							 
+							<label>
+								Description
+							</label>
+							<textarea [(ngModel)]="description" type="text" class="form-control" id="exampleInputEmail1" name="description"></textarea>
+						</div>
+						
+						<div class="form-group">
+							 
+							<label>
+								Price
+							</label>
+							<input  step="1" min="0" [(ngModel)]="price" type="number" class="form-control" id="exampleInputPassword1" name="price">
+						</div>
+						<div class="form-group">
+							 
+							<label>
+								Bulk Order Price
+							</label>
+							<input  step="1" min="0" [(ngModel)]="bulkPrice" type="number" class="form-control" id="exampleInputPassword1" name="bulkPrice"> 
+						</div>
+						<div class="form-group">
+							 
+							<label>
+								Quantity
+							</label>
+							<input step="1" min="0" [(ngModel)]="quantity" type="number" class="form-control" id="exampleInputPassword1" name="quantity">
+						</div>
+						<div class="form-group">
+							 
+							<label for="exampleInputFile">
+								Upload an image
+							</label>
+							<input type="file" (change)="onFileSelected($event)" class="form-control-file" id="exampleInputFile">
+							
+						</div>
+						<div class="checkbox">
+							 
+							<label>
+								<input type="checkbox" name="isAvailable" [(ngModel)]="available">In stock
+							</label>
+						</div> 
+						<button type="submit" (click)="check()" class="btn btn-primary">
+							Submit
+						</button>
+					</form>
+				</div>
+				<div class="col-md-2">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,14 @@
+<app-customer-header></app-customer-header>
+<div class="container-fluid address">
+<h1>Address Details</h1>
+<div *ngFor="let address of details" class="col-md-12">
+ <div class="card">
+    <div class="card-body">
+
+              <p>{{address.pincode}},{{address.addressLine}},{{address.city}},{{address.district}},{{address.state}}</p>
+    </div>
+  </div>
+ </div>
+ <button>+Add Address</button>
+</div>
+ 

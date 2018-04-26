@@ -1,0 +1,36 @@
+<app-farmer-header></app-farmer-header>
+<div class="container" style="margin-bottom: 170px;">
+  <div class="row">
+    <div *ngFor="let order of orderList | paginate: {itemsPerPage:8,currentPage:p}" class="col-lg-3">
+
+      <div class="card shadow p-2 mb-3" style="height: 13rem;">
+        <!-- Card content -->
+        <div class="card-body text-center">
+          <!-- Title -->
+          <h5 class="card-title">
+            <strong>{{order.orderId}}</strong>
+          </h5>
+          <!-- Text -->
+          <div class="text-area">
+            <p class="card-text">
+              <b>Customer Id: </b>{{order.kkdCustId}}</p>
+            <p class="card-text">
+              <b>Customer Name : </b>{{order.name}}</p>
+            <p class="card-text">
+              <b>Address : </b>{{order.address.addressLine}} {{order.address.city}} {{order.address.state}} {{order.address.district}} {{order.address.pincode}}</p>
+            <p class="card-text">
+              <b>Quantity : </b>{{order.quantity}}</p>
+            <p class="card-text">
+              <b>Amount : </b>{{order.price}}</p>
+            <p class="card-text">
+              <b>Order Status : </b>{{order.orderStatus}}</p>
+							<div *ngIf="order.orderStatus=='Delivered'">
+								<p class="card-text"><b>Delivery Date : </b>{{order.orderReceivingDate}}</p>
+							</div>
+          </div>
+        </div>
+      </div>
+		</div>
+	</div>
+</div>
+<pagination-controls (pageChange)="p=$event"></pagination-controls>

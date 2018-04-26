@@ -1,0 +1,7 @@
+<div *ngIf="!aadhaarData">
+<app-aadhaar (success)="getAadhaarData($event)"></app-aadhaar>
+</div>
+<div *ngIf="aadhaarData">
+<app-farmer-register [aadhaarDataRecievedByRegister]="aadhaarData"></app-farmer-register>
+</div>
+

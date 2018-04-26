@@ -1,0 +1,139 @@
+<app-farmer-header></app-farmer-header>
+<div class="home">
+  <div class="container-fluid display-table">
+    <div class="row display-table-row">
+      <div class="col-sm-4 hidden-xs display-table-cell v-align box" id="navigation">
+        <div class="navi">
+          <ul>
+            <li><a routerLink="/farmer/myAccount/addAddress">Add Address</a></li>
+            <li><a routerLink="/farmer/myAccount/changePassword">Change Password</a></li>
+            <li><a routerLink="/farmer/myAccount/alternateMobile">Alternate Mobile</a></li>
+            <li><a routerLink="/farmer/myAccount/deleteProfile">Delete Profile</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-8 display-table-cell v-align">
+             
+              <div class="card-body" style="width: 200px; margin-left:50px">
+                <img class="card-img-top farmer-image" src="../../../../assets/images/farmer.jpg" alt="Card image" style="width:100%">
+                <h5 class="card-title">{{farmerId}}</h5>
+                <p class="card-text">
+                <strong>{{farmerAddressLine}}</strong><br />{{farmerCity}} {{farmerDistrict}}<br />{{farmerState}} {{farmerPincode}} <br/>
+                </p><hr>
+                <p class="card-text" [hidden]="IsHidden">
+                <strong>{{farmerAlternateAddressLine}}</strong><br />{{farmerAlternateCity}} {{farmerAlternateDistrict}}<br />{{farmerAlternateState}} {{farmerAlternatePincode}} <br/>
+                </p>
+              </div>
+       
+        </div>
+    </div>
+  </div> 
+</div>   
+<div class="modal fade" tabindex="-1" id="updateAddressModal" data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Update Alternate Address</h4>
+        <button type="button" class="close" data-dismiss="modal">
+          &times;
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="inputAddressLine">Address Line</label>
+            <input [(ngModel)]="farmerAlternateAddressLine" type="text" class="form-control"
+              placeholder="Enter Address" id="inputAddressLine" name="farmerAlternateAddressLine">
+          </div>
+          <div class="form-group">
+            <label for="inputCity">City</label>                                     
+            <input [(ngModel)]="farmerAlternateCity" type="text" class="form-control"
+              placeholder="Enter City" id="inputCity" name="farmerAlternateCity">
+          </div>
+          <div class="form-group">         
+            <label for="inputDistrict">District</label>
+            <input [(ngModel)]="farmerAlternateDistrict" type="text" class="form-control" 
+              placeholder="Enter District" id="inputDistrict" name="farmerAlternateDistrict">
+          </div>
+          <div class="form-group">
+            <label for="inputState">State</label>                
+            <input [(ngModel)]="farmerAlternateState" type="text" class="form-control"
+              placeholder="Enter State" id="inputState" name="farmerAlternateState">
+          </div>
+          <div class="form-group">
+            <label for="inputPincode">Pincode</label>           
+            <input [(ngModel)]="farmerAlternatePincode" type="number" pattern="[0-9]" class="form-control"
+              step="1" placeholder="Enter Pincode" id="inputPincode" name="farmerAlternatePincode">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button data-dismiss="modal" (click)="updateFarmerAddress()" (click)="onSelect()"type="submit" class="btn btn-primary">Add</button>
+        <button  type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div> 
+<!-- <div class="modal fade" tabindex="-1" id="updatePasswordModal" data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Change Password</h4>
+        <button type="button" class="close" data-dismiss="modal">
+          &times;
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="inputCurrentPassword">Current Password</label>
+            <input [(ngModel)]="currentPassword" class="form-control" placeholder="Enter current Password"
+              type="password"  name="currentPassword" />
+          </div>
+          <div class="form-group">
+            <label for="inputNewPassword">New Password</label>
+              <input [(ngModel)]="newPassword" class="form-control" placeholder="Enter new Password"
+                type="password" name="newPassword" />
+          </div>
+          <div class="form-group">
+            <label for="inputReNewPassword">Re-enter new Password</label>
+            <input [(ngModel)]="reenterNewPassword" class="form-control" placeholder="Re-enter New Password"
+              type="password" name="reenterNewPassword" />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button (click)="resetPassword()" type="submit" class="btn btn-primary" data-dismiss="modal">Change</button>
+          <button  type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+<div class="modal fade" tabindex="-1" id="updateMobileModal" data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Alternate Mobile</h4>
+        <button type="button" class="close" data-dismiss="modal">
+          &times;
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="inputCurrentPassword">Enter Mobile Number</label>
+            <input [(ngModel)]="farmerAlternateNumber" class="form-control" placeholder="Enter mobile number"
+              type="number"  name="currentPassword" />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button (click)="updateFarmerMobile()" (click)="onSelect()" type="submit" class="btn btn-primary" data-dismiss="modal">Update</button>
+          <button  type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ 
